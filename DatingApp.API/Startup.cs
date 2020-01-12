@@ -57,18 +57,18 @@ namespace DatingApp.API
             }
             else
             {
-                app.UseExceptionHandler(builder => 
+                app.UseExceptionHandler(builder => {
                     builder.Run(async context => {
                         context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
 
                         var error = context.Features.Get<IExceptionHandlerFeature>();
-                        if(error != null)
+                        if (error != null)
                         {
                             context.Response.AddApplicationError(error.Error.Message);
                             await context.Response.WriteAsync(error.Error.Message);
                         }
-                    })
-                );
+                    });
+                });
             }
 
             //app.UseHttpsRedirection(); --> we dont want to use https.
