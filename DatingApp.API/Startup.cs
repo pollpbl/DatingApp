@@ -98,8 +98,8 @@ namespace DatingApp.API
                 });
             }
 
-            //app.UseHttpsRedirection(); --> we dont want to use https.
-
+            //app.UseHttpsRedirection();
+            
             app.UseRouting();
 
             app.UseAuthentication();
